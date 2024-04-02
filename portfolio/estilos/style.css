@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+/* importando essa fonte do google fonts, e linkando no css, duas fontes*/
+
+:root { /*váriavel css global para usar em diversos lugares*/
+    --cor-primaria: #000000;
+    --cor-secundario: #F6F6F6;
+    --cor-terciaria: #22D4FD;
+    --cor-hover: #272727;
+    /* hífen duplo para declarar que é uma várivel css*/
+    --fonte-primaria: 'Krona One', sans-serif; /* criando fontes globais*/
+    --fonte-secundaria:'Montserrat',  sans-serif;
+}
+
+* { /* reset css, estilo aplicado em todo o conteúdo da página*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* height: 100vh; altura da página 100 cem por cento viewport height */
+    box-sizing: border-box; /* para nada sair do componente pai, o filho no caso*/
+    background-color: var(--cor-primaria); /* cor de fundo, usando variaveis css*/
+    color: #F6F6F6; /* cor do texto*/
+}
+
+.cabecalho {
+    padding: 2% 0% 0% 15%;/* cima, direita, baixo, esquerda*/
+}
+
+.cabecalho__menu {
+    display: flex;
+    gap: 80px;
+}
+
+.cabecalho__menu__link {
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+}
+
+
+
+.apresentacao {
+    padding: 5% 15%; /* margem entre todos os componentes, o primeiro sempre é vertical
+    e o segundo horizontal*/
+    display: flex; /* por padrão ele alinha tudo como row, linha*/
+    align-items: center; /* para alinhar todos os componenentes no centro
+    a partir de um índice que seria o maior componente da página, e ele vai definir
+    o ponto central do alinhamento*/
+    justify-content: space-between; /* espaço entre componentes*/
+    gap: 82px;
+}
+
+.apresentacao__conteudo {
+    width: 50%; /* largura*/
+    /* height: ; altura */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;/*espaçamento de cada um dos componentes filhos*/
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: 2.25rem; /* divisão por rem para pixels, 36px divido por 16 vai dar o valor em rem*/
+    font-family: var(--fonte-primaria); /* imporntando a fonte para o class*/
+}
+
+.titulo-destaque { /* ponto. para mencionar que é uma classe e não uma tag html*/
+    color: var(--cor-terciaria);
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1.5rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__links {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center; /* centralizando na vertical por conta do flex direction column*/
+    gap: 32px;/*espaçamento entre os itens */
+}
+
+.apresentacao__links__subtitulo {
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.apresentacao__links__navegacao {
+    border: 2px solid var(--cor-terciaria); /* borda com 2 px de estrutura sólida, ou seja um tracejado
+    em volta da borda */
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 50%;
+    text-align: center; /* alinhamento do texto no centro*/
+    border-radius: 8px;/*arredondamento da borda*/
+    font-size: 1.5rem;
+    padding: 21.5px 0; /*sempre o primeiro valor de padding é do eixo vertical
+    e o segundo do eixo horizontal, padding é o espaçamento de um componente, preenchimnento dele*/
+    text-decoration: none;/*para retirar a decoração de Link, aquele sublinhado azul*/
+    color: var(--cor-secundario);
+    font-weight: 600;/*peso da fonte*/
+    font-family: var(--fonte-secundaria);
+}
+
+/*tudo que for passado o mouse em cima e tiver essa classe será detacado com o hover */ 
+.apresentacao__links__link:hover { 
+    background-color: var(--cor-hover);
+    padding: 3%;
+}
+
+.apresentacao__imagem {
+    width: 50%; /*porcentagem é relativa, ela se adapta a tela*/
+}
+
+.rodape {
+    padding: 24px; /* distância entre o conteúdo e a borda*/
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/*se a tela for no máximo ou no mínimo desse tamanho, fique desse jeito
+para isso que serve o media query*/
+@media (max-width: 1200px) {
+    .cabecalho {
+        padding: 10%;
+    }
+
+    .cabecalho__menu {
+        justify-content: center;
+    }
+
+    .apresentacao {  /* pegando uma classe já existente e alterando*/
+        flex-direction: column-reverse;  /* invertendo a coluna*/
+        padding: 5%;
+    }
+
+    .apresentacao__conteudo {
+        width: auto;/*largura automática, conseguiria o mesmo resultado com width 100%*/ 
+    }
+}
+
